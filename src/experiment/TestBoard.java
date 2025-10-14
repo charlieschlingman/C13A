@@ -15,7 +15,7 @@ public class TestBoard {
     // Returns cell at row and col
     public TestBoardCell getCell(int row, int col) {
         // TODO implement
-    	return null;
+    	return new TestBoardCell(row, col);
     }
 
     // Start target calculation
