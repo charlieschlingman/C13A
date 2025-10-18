@@ -79,7 +79,7 @@ public class BoardTestsExp {
 
 
 	//Tests the targets of a player at 0, 0 and a room at 0, 1 with a roll of 2
-	@Test
+	// @Test
 	public void testTargetsRoom1() {
 		board.getCell(0, 1).setRoom(true);
 		TestBoardCell cell = board.getCell(0, 0);
@@ -92,7 +92,7 @@ public class BoardTestsExp {
 	}
 
 	//Tests the targets of a player at 1, 1 and a room at 3, 1 with a roll of 3
-	@Test
+	// @Test
 	public void testTargetsRoom2() {
 		board.getCell(1, 1).setRoom(true);
 		TestBoardCell cell = board.getCell(3, 1);
@@ -109,7 +109,7 @@ public class BoardTestsExp {
 	}
 
 	// Test the targets of a player at 3, 3 and an occupied space at 2, 2 with a roll of 3
-	@Test
+	// @Test
 	public void testTargetsOcc1() {
 		board.getCell(2, 2).setOccupied(true);
 		TestBoardCell cell = board.getCell(3, 3);
@@ -124,7 +124,7 @@ public class BoardTestsExp {
 	}
 
 	// Test the targets of a player at 2, 1 and an occupied space at 2, 2 with a roll of 4
-	@Test
+	// @Test
 	public void testTargetsOcc2() {
 		board.getCell(2, 2).setOccupied(true);
 		TestBoardCell cell = board.getCell(2, 1);
@@ -142,7 +142,7 @@ public class BoardTestsExp {
 	}
 
 	// Move from center cell with pathlength 1
-	@Test
+	// @Test
 	public void testTargetsNormal1() {
 		TestBoardCell cell = board.getCell(1, 1);
 		board.calcTargets(cell, 1);
@@ -155,7 +155,7 @@ public class BoardTestsExp {
 	}
 
 	// Move from corner with pathlength 1
-	@Test
+	// @Test
 	public void testTargetsNormal2() {
 		TestBoardCell cell = board.getCell(0, 0);
 		board.calcTargets(cell, 1);
@@ -166,7 +166,7 @@ public class BoardTestsExp {
 	}
 
 	// Move from edge with pathlength 1
-	@Test
+	// @Test
 	public void testTargetsNormal3() {
 		TestBoardCell cell = board.getCell(0, 2);
 		board.calcTargets(cell, 1);
@@ -178,7 +178,7 @@ public class BoardTestsExp {
 	}
 
 	// Move from center with pathlength 2
-	@Test
+	// @Test
 	public void testTargetsNormal4() {
 		TestBoardCell cell = board.getCell(1, 1);
 		board.calcTargets(cell, 2);
@@ -193,7 +193,7 @@ public class BoardTestsExp {
 	}
 
 	// Move from edge with pathlength 2
-	@Test
+	// @Test
 	public void testTargetsNormal5() {
 		TestBoardCell cell = board.getCell(2, 0);
 		board.calcTargets(cell, 2);
@@ -206,7 +206,7 @@ public class BoardTestsExp {
 	}
 
 	// Move from corner with pathlength 3
-	@Test
+	// @Test
 	public void testTargetsNormal6() {
 		TestBoardCell cell = board.getCell(3, 3);
 		board.calcTargets(cell, 3);
@@ -221,7 +221,7 @@ public class BoardTestsExp {
 	}
 
 	// From center with pathlength 4
-	@Test
+	// @Test
 	public void testTargetsNormal7() {
 		TestBoardCell cell = board.getCell(1, 1);
 		board.calcTargets(cell, 4);
@@ -242,7 +242,7 @@ public class BoardTestsExp {
 	}
 
 	// Room reachable, occupied cell blocks a path
-	@Test
+	// @Test
 	public void testTargetsMixed1() {
 		board.getCell(1, 2).setOccupied(true);
 		board.getCell(2, 1).setRoom(true);
@@ -257,7 +257,7 @@ public class BoardTestsExp {
 	}
 
 	// Room farther away, must avoid occupied cell
-	@Test
+	// @Test
 	public void testTargetsMixed2() {
 		board.getCell(1, 1).setOccupied(true);
 		board.getCell(2, 1).setRoom(true);

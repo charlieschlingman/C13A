@@ -46,4 +46,16 @@ public class TestBoardCell {
 	public boolean getOccupied() {
 		return occupied;
 	}
+	
+	public int getRow() {
+		return row;
+	}
+	
+	public int getColumn() {
+		return column;
+	}
+
+
+
+	
 }
