@@ -1,6 +1,6 @@
 package experiment;
 
-import java.util.Arrays;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -52,9 +52,6 @@ public class TestBoard {
         
     }
     
-    
-
-
 
 	// Returns cell at row and col
     public TestBoardCell getCell(int row, int col) {
@@ -71,7 +68,29 @@ public class TestBoard {
 
     // Target calculation method
     private void findAllTargets(TestBoardCell thisCell, int numSteps) {
-    	// TODO implement
+    	for (TestBoardCell adjCell : thisCell.getAdjList()) {
+            // Skip visited cells
+            if (visited.contains(adjCell))
+            	continue;
+
+            // Skip occupied cells
+            if (adjCell.getOccupied())
+            	continue;
+
+            visited.add(adjCell);
+            
+            if (adjCell.room()) {
+                targets.add(adjCell);
+            } 
+            else if (numSteps == 1) {
+                targets.add(adjCell);
+            } 
+            else {
+                findAllTargets(adjCell, numSteps - 1);
+            }
+
+            visited.remove(adjCell);
+        }
     }
 
     // Getter for targets (returns empty set if not initialized)
@@ -83,6 +102,4 @@ public class TestBoard {
     		return new HashSet<>();
     	}
     }
-    
-    
 }
