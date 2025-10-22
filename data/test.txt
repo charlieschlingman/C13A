@@ -1,0 +1,6 @@
+For these tests, we made sure that they were different in order to satisfy the conditions of our specific map. For example, we set the room label test to make it so that
+each of the rooms are tested, and then making sure that the room count is equal to 9, setting each string name for each room to the board getting the room for the character, 
+then getting the name, making sure the 2 are equal. For the board size, we tested the getNumRows and getNumColumn equal to the correct number for our board. For the doorways, 
+we made sure that the cells that contained doorways were set to true and made sure they were facing the right way. We then made sure there were the correct number of doors
+for our map. Lastly, we made sure that the center of the rooms are in the correct position, making sure that the corresponding cells are in the correct room, using the room.getName(), 
+then checking to see if it is a label, a center, or a doorway. 
