@@ -2,7 +2,5 @@
 .project
 .classpath
 .settings/
-.src/
-.data/
 .metadata
 bin/
