@@ -1,0 +1,13 @@
+// Rooms and room cards
+Room, Master Bedroom, M
+Room, Guest Bedroom, G
+Room, Restroom, R
+Room, Den, D
+Room, Patio, P
+Room, Closet, C
+Room, Barroom, B
+Room, Arcade, A
+Room, Office, O
+// Other spaces on board
+Space, Unused, X
+Space, Walkway, W
