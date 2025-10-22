@@ -1,15 +1,21 @@
 package clueGame;
 
 
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+>>>>>>> 85ac79c4a6e5b254563bbd0f4723f4ca64bebf1e
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+<<<<<<< HEAD
 import javax.swing.JFrame;
 
 import experiment.TestBoardCell;
 
+=======
+>>>>>>> 85ac79c4a6e5b254563bbd0f4723f4ca64bebf1e
 public class Board {
 	private BoardCell[][] grid;
 	private int numRows;
@@ -19,8 +25,11 @@ public class Board {
 	private Map<Character, Room> roomMap;
 	private Set<BoardCell> targets;
 	private Set<BoardCell> visited;
+<<<<<<< HEAD
 	private int roomCount;
 	private int doorCount;
+=======
+>>>>>>> 85ac79c4a6e5b254563bbd0f4723f4ca64bebf1e
 
 	final static int COLS = 24;
 	final static int ROWS = 25;
@@ -31,8 +40,12 @@ public class Board {
      private static Board theInstance = new Board();
      // constructor is private to ensure only one can be created
      private Board() {
+<<<<<<< HEAD
     	 super() ;
 
+=======
+            super() ;
+>>>>>>> 85ac79c4a6e5b254563bbd0f4723f4ca64bebf1e
      }
      // this method returns the only Board
      public static Board getInstance() {
@@ -43,6 +56,7 @@ public class Board {
       */
      public void initialize()
      {
+<<<<<<< HEAD
     	 // Create board
     	 grid = new BoardCell[ROWS][COLS];
     	 
@@ -54,6 +68,8 @@ public class Board {
     	 
     	 roomMap = new HashMap<>();
     	 
+=======
+>>>>>>> 85ac79c4a6e5b254563bbd0f4723f4ca64bebf1e
      }
 	
 	// Sets configuration files
@@ -82,11 +98,15 @@ public class Board {
 	
 	// Get the room
 	public Room getRoom(char roomInitial) {
+<<<<<<< HEAD
 		Room room = roomMap.get(roomInitial);
 		if (room == null) {
 			return new Room("Test", null, null);
 		}
 	    return room;
+=======
+	    return roomMap.get(roomInitial);
+>>>>>>> 85ac79c4a6e5b254563bbd0f4723f4ca64bebf1e
 	}
 	
 	public Room getRoom(BoardCell cell) {
@@ -151,6 +171,7 @@ public class Board {
 			return new HashSet<>();
 		}
 	}
+<<<<<<< HEAD
 	
 	// Getter for Room Count
 	public int getRoomCount() {
@@ -161,4 +182,6 @@ public class Board {
 	public int getDoorCount() {
 		return doorCount;
 	}
+=======
+>>>>>>> 85ac79c4a6e5b254563bbd0f4723f4ca64bebf1e
 }
