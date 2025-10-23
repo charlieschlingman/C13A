@@ -3,8 +3,6 @@ package clueGame;
 import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
-import javax.swing.JFrame;
-import experiment.TestBoardCell;
 
 public class Board {
 	private BoardCell[][] grid;
@@ -192,7 +190,7 @@ public class Board {
 		
 	}
 	
-	
+	// Helper for loadLayoutConfig
 	private void calcAdjacencies() {
 	    for (int row = 0; row < numRows; row++) {
 	        for (int col = 0; col < numColumns; col++) {
@@ -238,6 +236,7 @@ public class Board {
 	    return cell.getInitial() == 'W';
 	}
 
+	// Helper for loadLayoutConfig
 	private void addAdjacencyIfValid(Set<BoardCell> adj, int row, int col, DoorDirection neededDoorDir, BoardCell origin) {
 	    if (row < 0 || row >= numRows || col < 0 || col >= numColumns) return;
 
