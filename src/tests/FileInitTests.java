@@ -47,7 +47,7 @@ public class FileInitTests {
 	// Make sure the amount of rows and columns are correct
 	@Test 
 	public void testBoardSize() {
-		assertEquals(board.getNumRows(), 25);
+		assertEquals(board.getNumRows(), 26);
 		assertEquals(board.getNumColumns(), 24);
 	}
 	
@@ -69,7 +69,7 @@ public class FileInitTests {
 		cell = board.getCell(12, 13);
 		assertTrue(cell.isDoorway());
 		assertEquals(cell.getDoorDirection(), DoorDirection.LEFT);
-		cell = board.getCell(18, 17);
+		cell = board.getCell(18, 19);
 		assertTrue(cell.isDoorway());
 		assertEquals(cell.getDoorDirection(), DoorDirection.DOWN);
 		cell = board.getCell(20, 8);
@@ -85,7 +85,7 @@ public class FileInitTests {
 		assertTrue(room != null);
 		assertEquals(room.getName(), "Den");
 		assertFalse(cell.isLabel());
-		assertFalse(cell.isRoomCenter());
+		assertTrue(cell.isRoomCenter());
 		assertFalse(cell.isDoorway());
 		
 		cell = board.getCell(22, 2);
@@ -93,7 +93,7 @@ public class FileInitTests {
 		assertTrue(room != null);
 		assertEquals(room.getName(), "Office");
 		assertFalse(cell.isLabel());
-		assertFalse(cell.isRoomCenter());
+		assertTrue(cell.isRoomCenter());
 		assertFalse(cell.isDoorway());
 		
 		cell = board.getCell(13, 1);

@@ -17,6 +17,7 @@ public class Board {
 	private Set<BoardCell> visited;
 	private int roomCount;
 	private int doorCount;
+	
 
 	/*
 	 * variable and methods used for singleton pattern
@@ -108,6 +109,7 @@ public class Board {
 		grid = new BoardCell[numRows][numColumns];
 		roomCount = 0;
 		doorCount = 0;
+		Set<Character> uniqueRooms = new HashSet<>();
 
 		for (int r = 0; r < numRows; r++) {
 			for (int c = 0; c < numColumns; c++) {
@@ -122,21 +124,25 @@ public class Board {
 				}
 
 				BoardCell cell = new BoardCell(r, c);
+				cell.setInitial(initial);
 				cell.setRoom(initial != 'W' && initial != 'X');
 				cell.setOccupied(false);
+				cell.setRoomCenter(false);
 				setDoorAttributes(cell, cellCode);
+				setSpecialCells(cell, cellCode, initial);
+				
 				grid[r][c] = cell;
 
 				// Count rooms and doors for testing
-				if (cell.room()) roomCount++;
+				if (cell.room()) uniqueRooms.add(initial);
 				if (cell.isDoorway()) doorCount++;
 			}
 		}
-		
+		roomCount = uniqueRooms.size();
 		calcAdjacencies();
 	}
 
-	// Assign door directions and special flags
+	// Assign door directions
 	private void setDoorAttributes(BoardCell cell, String code) {
 		cell.setDoorDirection(DoorDirection.NONE);
 		if (code.length() > 1) {
@@ -154,21 +160,38 @@ public class Board {
 			case '>':
 				cell.setDoorDirection(DoorDirection.RIGHT);
 				break;
-			case '*': 
-				cell.setRoomCenter(true); 
-				break;
-	        case '#': 
-	        	cell.setLabel(true); 
-	        	break;
 			default:
-				cell.setDoorDirection(DoorDirection.NONE);
 				break;
 			}
 		}
-		if (code.length() == 2 && Character.isLetter(code.charAt(1))) {
-		    cell.setSecretPassage(code.charAt(1));
-		}
 	}
+	
+	// Assign Special Cells
+	private void setSpecialCells(BoardCell cell, String code, char initial) {
+		if (code.length() > 1) {
+			char symbol = code.charAt(1);
+			switch (symbol) {
+			case '*':
+				cell.setRoomCenter(true);
+				roomMap.get(initial).setCenterCell(cell);
+				break;
+			case '#':
+				cell.setLabel(true);
+				roomMap.get(initial).setLabelCell(cell);
+				break;
+			default:
+				break;
+			}
+		}
+		if (code.length() == 2) {
+		    char secondChar = code.charAt(1);
+		    if (Character.isLetter(secondChar)) {
+		        cell.setSecretPassage(secondChar);
+		    }
+		}
+		
+	}
+	
 	
 	private void calcAdjacencies() {
 	    for (int row = 0; row < numRows; row++) {
